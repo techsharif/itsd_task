@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{#{% load avatar_tags %}#}
+
+{% block extrahead %}
+    <title>All task</title>
+{% endblock %}
+
+{% block content %}
+    {% if tasks %}
+
+            {% for key,task in tasks.items %}
+                <div class="panel panel-info">
+                <div class="panel-heading">{{ key }}</div>
+                <table class="table">
+                    <thead>
+                    <th class="col-md-4">Person</th>
+                    <th class="col-md-8">Tasks</th>
+                    </thead>
+                    {% for key, tt in task.items %}
+                        <tr>
+                            <td>{{ key }}</td>
+                            <td>
+                                <ul>
+                                    {% for t in tt %}
+                                        <li>{{ t.task_title }}</li>
+                                    {% endfor %}
+
+                                </ul>
+                            </td>
+                        </tr>
+                    {% endfor %}
+
+
+                </table>
+                </div>
+            {% endfor %}
+    {% else %}
+        <div class="alert alert-info">No task Has been listed</div>
+    {% endif %}
+{% endblock %}
+
+

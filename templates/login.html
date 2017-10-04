@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{#{% load avatar_tags %}#}
+
+{% block extrahead %}
+    <title>Login</title>
+{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-info">
+                <div class="panel-heading text-center">Login</div>
+                <form action="" method="post">
+                    {% if error %}
+                                    <div class="row">
+                                        <div class="alert alert-warning alert-dismissible" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert"
+                                                    aria-label="Close"><span
+                                                    aria-hidden="true">&times;</span></button>
+                                            <strong>{{ error }}</strong>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                                {% if success %}
+                                    <div class="row">
+                                        <div class="alert alert-success alert-dismissible" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert"
+                                                    aria-label="Close"><span
+                                                    aria-hidden="true">&times;</span></button>
+                                            <strong>{{ success }}</strong>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                    {% csrf_token %}
+                    <br>
+                 <div class="form-group">
+                                    <label for="username"><strong class="text-info">Username </strong></label>
+                                    <input required type="text" class="form-control" name="username"
+                                           id="username" value="{{ campaign_name }}"
+                                           placeholder="Username">
+                                </div>
+                 <div class="form-group">
+                                    <label for="password"><strong class="text-info">Password </strong></label>
+                                    <input required type="password" class="form-control" name="password"
+                                           id="password" value="{{ campaign_name }}"
+                                           placeholder="Password">
+                                </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+

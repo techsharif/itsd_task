@@ -1,0 +1,42 @@
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">ITSD Task</a>
+        </div>
+
+
+        <div class="navbar-right">
+            <a class="navbar-brand" href="">
+                <small>{{ cp.today }}</small>
+            </a>
+
+            {% if cp.user %}
+                <a class="navbar-brand" href="/logout/"><span class="text-danger"><small>Logout</small></span></a>
+            {% endif %}
+
+
+        </div>
+
+        <ul class="nav navbar-nav navbar-right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Task Panal <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/task/all/">Regular</a></li>
+                    <li><a href="/task/all/?all=True">Full</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Tasks <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/">Regular</a></li>
+                    <li><a href="/?all=True">Full</a></li>
+                </ul>
+            </li>
+        </ul>
+
+
+
+    </div>
+</nav>
